@@ -1,0 +1,14 @@
+<h3>place details</h3>
+<div>
+
+    <p>Name: {{place.name}}</p>
+    <p>Description: {{place.description}}</p>
+   
+    <h5>Address</h5>
+        <p>latitude: {{place.location.coordinates.[1]}}</p>
+        <p>longitude: {{place.location.coordinates.[0]}}</p>
+<p>{{place.location}}</p>
+</div>
+<a href="/{{place._id}}/edit">edit Details</a>
+
+
