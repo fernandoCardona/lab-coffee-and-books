@@ -21,7 +21,7 @@ router.post('/places/new', (req, res, next) => {
 	}
 
 	Place.create({
-		name: req.body.name,
+		name: req.body.name,clearImmediate,
 		description: req.body.description,
 		type: req.body.type,
 		location: location
@@ -66,6 +66,14 @@ router.get('/:place_id/delete', (req, res, next) => {
 	Place.findByIdAndRemove(req.params.place_id)
 		.then(() => res.redirect('/'))
 		.catch(err => next(err))
+});
+
+router.get('/places/api', (req, res, next) => {
+	Place.find()
+		.then(Places => {
+			res.status(200).json({ places: Places });
+		})
+		.catch(err => console.log(err))
 });
 
 module.exports = router;
